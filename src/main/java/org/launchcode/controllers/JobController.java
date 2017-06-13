@@ -51,27 +51,25 @@ public class JobController {
         Job newJob = new Job();
         jobData.add(newJob); //add cheese passed in through form to model
 
+        //getIds
         int employerId = jobForm.getEmployerId();
         int locationId = jobForm.getLocationId();
         int positionTypeId = jobForm.getPositionTypeId();
         int coreCompetencyId= jobForm.getCoreCompetencyId();
 
+        //get Lists
         JobFieldData<Employer> Employers = jobData.getEmployers();
         JobFieldData<Location> Locations = jobData.getLocations();
         JobFieldData<PositionType> PositionTypes = jobData.getPositionTypes();
         JobFieldData<CoreCompetency> CoreCompetencies = jobData.getCoreCompetencies();
 
+        //find objects in lists by ID
         Employer employerObject = Employers.findById(employerId);
         Location locationObject = Locations.findById(locationId);
         PositionType positionTypeObject = PositionTypes.findById(positionTypeId);
         CoreCompetency coreCompetencyObject = CoreCompetencies.findById(coreCompetencyId);
 
-        String employerValue = employerObject.getValue();
-        String locationValue = locationObject.getValue();
-        String positionTypeValue = positionTypeObject.getValue();
-        String coreCompetencyValue = coreCompetencyObject.getValue();
-
-
+        //set'em
         newJob.setName(jobForm.getName());
         newJob.setEmployer(employerObject); //
         newJob.setLocation(locationObject);
