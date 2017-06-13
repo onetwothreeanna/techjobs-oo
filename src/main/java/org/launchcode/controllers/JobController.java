@@ -49,7 +49,7 @@ public class JobController {
         }
 
         Job newJob = new Job();
-        jobData.add(newJob); //add cheese passed in through form to model
+        jobData.add(newJob); 
 
         //getIds
         int employerId = jobForm.getEmployerId();
